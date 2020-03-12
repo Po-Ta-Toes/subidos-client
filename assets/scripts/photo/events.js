@@ -13,8 +13,16 @@ const onCreatePhoto = function (event) {
     .catch(ui.onCreatePhotoFailure)
 }
 
+const onIndexPhotos = function (event) {
+  event.preventDefault()
+  api.indexPhotos()
+    .then(ui.onIndexPhotosSuccess)
+    .catch(ui.onIndexPhotosFailure)
+}
+
 const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
+  $('#photo-index').on('click', onIndexPhotos)
 }
 
 module.exports = {
