@@ -16,6 +16,17 @@ const createPhoto = data => {
   })
 }
 
+const indexPhotos = function () {
+  return $.ajax({
+    url: config.apiUrl + '/photos',
+    method: 'GET',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  createPhoto
+  createPhoto,
+  indexPhotos
 }
