@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Subidos</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -12,6 +12,49 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>Subidos</h1>
+
+      <div class="sign-in-wrapper">
+        <p id="sign-up-message"></p>
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign Up</legend>
+            <input name="credentials[email]" type="email" placeholder="Your Email here">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <input type="submit" value="Sign Up">
+          </fieldset>
+        </form>
+        <form id="sign-in">
+          <fieldset>
+            <legend>Sign in</legend>
+            <input name="credentials[email]" type="email" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input type="submit" value="Sign in">
+          </fieldset>
+        </form>
+      </div>
+
+      <div class="main-content hidden">
+        <nav class="side-nav">
+          <p id="nav-message"></p>
+          <form id="change-pw">
+            <fieldset>
+              <legend>Change Password</legend>
+              <input name="passwords[old]" type="password" placeholder="Old Password">
+              <input name="passwords[new]" type="password" placeholder="New Password">
+              <input type="submit" value="Change Password">
+            </fieldset>
+          </form>
+          <form id="sign-out">
+            <fieldset>
+              <legend>Sign out</legend>
+              <input type="submit" value="Sign out">
+            </fieldset>
+          </form>
+        </nav>
+
+        <main></main>
+      </div>
     </body>
 </html>
