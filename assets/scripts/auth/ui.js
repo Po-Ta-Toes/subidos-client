@@ -3,36 +3,48 @@
 const store = require('../store')
 
 const onSignUpSuccess = function (response) {
-  $('#auth-message').text('sign up success')
+  $('#sign-up-message').text('sign up success')
+  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
 }
 
 const onSignUpFailure = function (response) {
-  $('#auth-message').text('sign up failure')
+  $('#sign-up-message').text('sign up failure')
+  $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
-  $('#auth-message').text('sign in success')
+  $('.sign-in-wrapper').addClass('hidden')
+  $('.main-content').removeClass('hidden')
   store.user = response.user
+  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
 }
 
 const onSignInFailure = function (response) {
-  $('#auth-message').text('sign in failure')
+  $('#sign-up-message').text('sign in failure')
+  $('#sign-in').trigger('reset')
 }
 
 const onChangePwSuccess = function (response) {
-  $('#auth-message').text('change pw success')
+  $('#nav-message').text('change pw success')
+  $('#change-pw').trigger('reset')
 }
 
 const onChangePwFailure = function (response) {
-  $('#auth-message').text('change pw failure')
+  $('#nav-message').text('change pw failure')
+  $('#change-pw').trigger('reset')
 }
 
 const onSignOutSuccess = function (response) {
-  $('#auth-message').text('sign out success')
+  $('#sign-up-message').text('sign out success')
+  $('.sign-in-wrapper').removeClass('hidden')
+  $('.main-content').addClass('hidden')
+  $('#change-pw').trigger('reset')
 }
 
 const onSignOutFailure = function (response) {
-  $('#auth-message').text('sign out failure')
+  $('#nav-message').text('sign out failure')
 }
 
 module.exports = {
