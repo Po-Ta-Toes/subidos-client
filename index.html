@@ -13,7 +13,8 @@
     </head>
     <body>
       <h1>Subidos</h1>
-      <form id="sign-up">
+    <p id="auth-message"></p>
+    <form id="sign-up">
       <fieldset>
         <legend>Sign Up</legend>
         <input name="credentials[email]" type="email" placeholder="Your Email here">
@@ -28,6 +29,20 @@
         <input name="credentials[email]" type="email" placeholder="Email">
         <input name="credentials[password]" type="password" placeholder="Password">
         <input type="submit" value="Sign in">
+      </fieldset>
+    </form>
+    <form id="change-pw">
+      <fieldset>
+        <legend>Change Password</legend>
+        <input name="passwords[old]" type="password" placeholder="Old Password">
+        <input name="passwords[new]" type="password" placeholder="New Password">
+        <input type="submit" value="Change Password">
+      </fieldset>
+    </form>
+    <form id="sign-out">
+      <fieldset>
+        <legend>Sign out</legend>
+        <input type="submit" value="Sign out">
       </fieldset>
     </form>
     </body>
