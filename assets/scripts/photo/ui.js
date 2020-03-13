@@ -19,7 +19,6 @@ const onIndexPhotosSuccess = function (data) {
 
 const onIndexPhotosFailure = function (data) {
   $('#nav-message').text('Create Photo Failure')
-  console.log(data)
 }
 
 module.exports = {
