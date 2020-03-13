@@ -51,7 +51,8 @@ const onShowPhotoFailure = function (data) {
 }
 
 const onDeletePhotoSuccess = function (data) {
-  console.log('success', data)
+  $('#nav-message').text('Delete successful')
+  $('#show-photo-modal').modal('hide')
 }
 
 const onDeletePhotoFailure = function (data) {
