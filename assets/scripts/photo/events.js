@@ -40,11 +40,21 @@ const onUpdatePhoto = function (event) {
     .catch(ui.onUpdatePhotoFailure)
 }
 
+const onDeletePhoto = function (event) {
+  event.preventDefault()
+
+  const photoId = $(event.target).data('id')
+  api.deletePhoto(photoId)
+    .then(ui.onDeletePhotoSuccess)
+    .catch(ui.onDeletePhotoFailure)
+}
+
 const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
   $('#photo-index').on('click', onIndexPhotos)
   $('#index-wrapper').on('click', '.selector', onShowPhoto)
   $('#show-photo-modal').on('click', '.update-btn', onUpdatePhoto)
+  $('#show-photo-modal').on('click', '.delete-btn', onDeletePhoto)
 }
 
 module.exports = {

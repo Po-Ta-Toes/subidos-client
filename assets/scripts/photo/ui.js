@@ -50,6 +50,14 @@ const onShowPhotoFailure = function (data) {
   console.log('failure: ', data)
 }
 
+const onDeletePhotoSuccess = function (data) {
+  console.log('success', data)
+}
+
+const onDeletePhotoFailure = function (data) {
+  console.log('failure: ', data)
+}
+
 module.exports = {
   onCreatePhotoSuccess,
   onCreatePhotoFailure,
@@ -58,5 +66,7 @@ module.exports = {
   onShowPhotoSuccess,
   onShowPhotoFailure,
   onUpdatePhotoSuccess,
-  onUpdatePhotoFailure
+  onUpdatePhotoFailure,
+  onDeletePhotoSuccess,
+  onDeletePhotoFailure
 }
