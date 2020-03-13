@@ -32,10 +32,9 @@ const onShowPhoto = function (event) {
 
 const onUpdatePhoto = function (event) {
   event.preventDefault()
-  const formData = getFormFields(event.target)
+  // const formData = getFormFields(event.target)
   const photoId = $(event.target).data('id')
-  // const formData = getFormFields($(`#form-${photoId}`))
-  console.log(formData)
+  const formData = getFormFields($(`#form-${photoId}`)[0])
   api.updatePhoto(formData, photoId)
     .then(ui.onUpdatePhotoSuccess)
     .catch(ui.onUpdatePhotoFailure)
@@ -45,7 +44,7 @@ const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
   $('#photo-index').on('click', onIndexPhotos)
   $('#index-wrapper').on('click', '.selector', onShowPhoto)
-  $('#show-photo-modal').on('submit', '.update-photo-form', onUpdatePhoto)
+  $('#show-photo-modal').on('click', '.update-btn', onUpdatePhoto)
 }
 
 module.exports = {

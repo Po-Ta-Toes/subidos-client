@@ -23,17 +23,17 @@
           <textarea name="photo[tags]" placeholder="no tags supplied"></textarea>
         </label>
         {{/if}}
-        <input type="submit" class="update-btn" value="update">
+        <!-- <input type="submit" class="update-btn" value="update"> -->
       </fieldset>
     </form>
     <p>Owned by: {{photo.owner.email}}</p>
     <p>Posted on: {{date-time photo.createdAt}}</p>
     <p>Updated on: {{date-time photo.updatedAt}}</p>
-    <!-- <p>To save changes click update below</p> -->
+    <p>To save changes click update below</p>
   </section>
 </div>
 <div class="modal-footer">
-  <!-- <button data-id="{{photo._id}}" type="button" class="btn btn-alert-primary update-btn">Update</button> -->
+  <button data-id="{{photo._id}}" type="button" class="btn btn-alert-primary update-btn">Update</button>
   <button data-id="{{photo._id}}" type="button" class="btn btn-alert-alert delete-btn">Delete</button>
 </div>
 {{/with}}
