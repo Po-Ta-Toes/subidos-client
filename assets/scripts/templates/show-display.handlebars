@@ -1,0 +1,18 @@
+{{#with photo as |photo|}}
+  <section data-id="{{photo._id}}">
+    <img src="{{photo.url}}" alt="sorry not sorry">
+    <h3 data-id="{{photo._id}}">
+      {{photo.name}}
+    </h3>
+    <p> Tags:
+      {{#if photo.tags.[0]}}
+        {{photo.tags}}
+      {{else}}
+        No data provided
+      {{/if}}
+    </p>
+    <p>Owned by: {{photo.owner}}</p> <!-- help with partial "owner"? -->
+    <p>Posted on: {{date-time photo.createdAt}}</p>
+    <p>Updated on: {{date-time photo.updatedAt}}</p>
+  </section>
+{{/with}}
