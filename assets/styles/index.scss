@@ -3,3 +3,18 @@
 .hidden {
   display: none;
 }
+
+.full-image {
+  border: 1px solid black;
+}
+
+.index-listing {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.thumbnail {
+  border: 1px solid black;
+  height: 5vh;
+  width: 5vh;
+}

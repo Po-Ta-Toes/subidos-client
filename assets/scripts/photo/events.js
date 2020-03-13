@@ -20,9 +20,19 @@ const onIndexPhotos = function (event) {
     .catch(ui.onIndexPhotosFailure)
 }
 
+const onShowPhoto = function (event) {
+  event.preventDefault()
+
+  const id = $(event.target).data('id')
+  api.showPhoto(id)
+    .then(ui.onShowPhotoSuccess)
+    .catch(ui.onShowPhotoFailure)
+}
+
 const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
   $('#photo-index').on('click', onIndexPhotos)
+  $('#index-wrapper').on('click', '.selector', onShowPhoto)
 }
 
 module.exports = {
