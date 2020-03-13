@@ -29,10 +29,15 @@ const onShowPhoto = function (event) {
     .catch(ui.onShowPhotoFailure)
 }
 
+const onUpdatePhoto = function (event) {
+  console.log(event.target)
+}
+
 const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
   $('#photo-index').on('click', onIndexPhotos)
   $('#index-wrapper').on('click', '.selector', onShowPhoto)
+  $('#show-photo-modal').on('click', '.update-btn', onUpdatePhoto)
 }
 
 module.exports = {

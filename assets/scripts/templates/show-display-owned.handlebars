@@ -1,0 +1,38 @@
+{{#with photo as |photo|}}
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle">Your Photo:</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <section data-id="{{photo._id}}">
+    <img class="full-image" src="{{photo.url}}" alt="photo unavailable">
+    <form id="form-{{photo._id}}">
+      <fieldset>
+        <legend>Upload a Photo:</legend>
+        <label>Name:
+          <input name="name" type="text" value="{{photo.name}}">
+        </label>
+        {{#if photo.tags.[0]}}
+        <label>Hashtags: (separate by commas)
+          <textarea name="tags">{{tags-display photo.tags}}</textarea>
+        </label>
+        {{else}}
+        <label>Hashtags: (separate by commas)
+          <textarea name="tags" placeholder="no tags supplied"></textarea>
+        </label>
+        {{/if}}
+      </fieldset>
+    </form>
+    <p>Owned by: {{photo.owner.email}}</p>
+    <p>Posted on: {{date-time photo.createdAt}}</p>
+    <p>Updated on: {{date-time photo.updatedAt}}</p>
+    <p>To save changes click update below</p>
+  </section>
+</div>
+<div class="modal-footer">
+  <button data-id="{{photo._id}}" type="button" class="btn btn-alert-primary update-btn">Update</button>
+  <button data-id="{{photo._id}}" type="button" class="btn btn-alert-alert delete-btn">Delete</button>
+</div>
+{{/with}}

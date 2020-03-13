@@ -1,6 +1,8 @@
 'use strict'
 const indexPhotosTemplate = require('../templates/index-display.handlebars')
 const showPhotoTemplate = require('../templates/show-display.handlebars')
+const showOwnedPhotoTemplate = require('../templates/show-display-owned.handlebars')
+const store = require('../store')
 
 const onCreatePhotoSuccess = function (data) {
   $('#nav-message').text('Create Photo Success')
@@ -24,7 +26,12 @@ const onIndexPhotosFailure = function (data) {
 
 const onShowPhotoSuccess = function (data) {
   $('#show-photo-modal').modal()
-  const showPhotoHTML = showPhotoTemplate({ photo: data.photo })
+  let showPhotoHTML
+  if (store.user._id === data.photo.owner._id) {
+    showPhotoHTML = showOwnedPhotoTemplate({ photo: data.photo })
+  } else {
+    showPhotoHTML = showPhotoTemplate({ photo: data.photo })
+  }
   $('.modal-content').html(showPhotoHTML)
 }
 
