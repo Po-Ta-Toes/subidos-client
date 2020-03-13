@@ -36,8 +36,20 @@ const showPhoto = function (id) {
   })
 }
 
+const updatePhoto = function (data, id) {
+  return $.ajax({
+    url: config.apiUrl + '/photos/' + id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   createPhoto,
   indexPhotos,
-  showPhoto
+  showPhoto,
+  updatePhoto
 }

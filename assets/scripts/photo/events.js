@@ -2,6 +2,7 @@
 
 const api = require('./api')
 const ui = require('./ui')
+const getFormFields = require('../../../lib/get-form-fields')
 
 const onCreatePhoto = function (event) {
   event.preventDefault()
@@ -30,14 +31,21 @@ const onShowPhoto = function (event) {
 }
 
 const onUpdatePhoto = function (event) {
-  console.log(event.target)
+  event.preventDefault()
+  const formData = getFormFields(event.target)
+  const photoId = $(event.target).data('id')
+  // const formData = getFormFields($(`#form-${photoId}`))
+  console.log(formData)
+  api.updatePhoto(formData, photoId)
+    .then(ui.onUpdatePhotoSuccess)
+    .catch(ui.onUpdatePhotoFailure)
 }
 
 const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
   $('#photo-index').on('click', onIndexPhotos)
   $('#index-wrapper').on('click', '.selector', onShowPhoto)
-  $('#show-photo-modal').on('click', '.update-btn', onUpdatePhoto)
+  $('#show-photo-modal').on('submit', '.update-photo-form', onUpdatePhoto)
 }
 
 module.exports = {

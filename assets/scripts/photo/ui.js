@@ -27,12 +27,23 @@ const onIndexPhotosFailure = function (data) {
 const onShowPhotoSuccess = function (data) {
   $('#show-photo-modal').modal()
   let showPhotoHTML
-  if (store.user._id === data.photo.owner._id) {
+  // console.log(store.user)
+  // console.log(data.photo.owner)
+  // console.log(store.user._id === data.photo.owner._id)
+  if (store.user._id === data.photo.owner) {
     showPhotoHTML = showOwnedPhotoTemplate({ photo: data.photo })
   } else {
     showPhotoHTML = showPhotoTemplate({ photo: data.photo })
   }
   $('.modal-content').html(showPhotoHTML)
+}
+
+const onUpdatePhotoSuccess = function (data) {
+  $('#nav-message').text('Update Photo Success')
+}
+
+const onUpdatePhotoFailure = function (data) {
+  $('#nav-message').text('Update Photo Failure')
 }
 
 const onShowPhotoFailure = function (data) {
@@ -45,5 +56,7 @@ module.exports = {
   onIndexPhotosSuccess,
   onIndexPhotosFailure,
   onShowPhotoSuccess,
-  onShowPhotoFailure
+  onShowPhotoFailure,
+  onUpdatePhotoSuccess,
+  onUpdatePhotoFailure
 }

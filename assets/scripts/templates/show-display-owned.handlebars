@@ -8,31 +8,32 @@
 <div class="modal-body">
   <section data-id="{{photo._id}}">
     <img class="full-image" src="{{photo.url}}" alt="photo unavailable">
-    <form id="form-{{photo._id}}">
+    <form id="form-{{photo._id}}" class="update-photo-form" data-id="{{photo._id}}">
       <fieldset>
         <legend>Upload a Photo:</legend>
         <label>Name:
-          <input name="name" type="text" value="{{photo.name}}">
+          <input name="photo[name]" id="name-{{photo._id}}" type="text" value="{{photo.name}}">
         </label>
         {{#if photo.tags.[0]}}
         <label>Hashtags: (separate by commas)
-          <textarea name="tags">{{tags-display photo.tags}}</textarea>
+          <textarea name="photo[tags]">{{tags-display photo.tags}}</textarea>
         </label>
         {{else}}
         <label>Hashtags: (separate by commas)
-          <textarea name="tags" placeholder="no tags supplied"></textarea>
+          <textarea name="photo[tags]" placeholder="no tags supplied"></textarea>
         </label>
         {{/if}}
+        <input type="submit" class="update-btn" value="update">
       </fieldset>
     </form>
     <p>Owned by: {{photo.owner.email}}</p>
     <p>Posted on: {{date-time photo.createdAt}}</p>
     <p>Updated on: {{date-time photo.updatedAt}}</p>
-    <p>To save changes click update below</p>
+    <!-- <p>To save changes click update below</p> -->
   </section>
 </div>
 <div class="modal-footer">
-  <button data-id="{{photo._id}}" type="button" class="btn btn-alert-primary update-btn">Update</button>
+  <!-- <button data-id="{{photo._id}}" type="button" class="btn btn-alert-primary update-btn">Update</button> -->
   <button data-id="{{photo._id}}" type="button" class="btn btn-alert-alert delete-btn">Delete</button>
 </div>
 {{/with}}
