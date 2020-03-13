@@ -11,7 +11,7 @@
         No data provided
       {{/if}}
     </p>
-    <p>Owned by: {{photo.owner}}</p> <!-- help with partial "owner"? -->
+    <p>Owned by: {{photo.owner.email}}</p> <!-- help with partial "owner"? -->
     <p>Posted on: {{date-time photo.createdAt}}</p>
     <p>Updated on: {{date-time photo.updatedAt}}</p>
   </section>

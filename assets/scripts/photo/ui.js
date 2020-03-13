@@ -15,7 +15,6 @@ const onCreatePhotoFailure = function (data) {
 
 const onIndexPhotosSuccess = function (data) {
   $('#nav-message').text('Received photos')
-  console.log(data)
   const indexPhotosHTML = indexPhotosTemplate({ photos: data.photos })
   $('#index-wrapper').html(indexPhotosHTML)
 }

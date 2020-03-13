@@ -1,7 +1,7 @@
 {{#each photos as |photo|}}
   <section class="index-listing" data-id="{{photo._id}}">
-    <img data-id="{{photo._id}}" class="thumbnail" src="{{photo.url}}" alt="photo unavailable">
-    <h3 data-id="{{photo._id}}">
+    <img data-id="{{photo._id}}" class="thumbnail selector" src="{{photo.url}}" alt="photo unavailable">
+    <h3 class="selector" data-id="{{photo._id}}">
       {{photo.name}}
     </h3>
   </section>
