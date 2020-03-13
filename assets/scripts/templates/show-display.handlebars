@@ -1,18 +1,23 @@
 {{#with photo as |photo|}}
+<div class="modal-header">
+  <h5 class="modal-title" id="exampleModalLongTitle">{{photo.name}}</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
   <section data-id="{{photo._id}}">
     <img class="full-image" src="{{photo.url}}" alt="photo unavailable">
-    <h3 data-id="{{photo._id}}">
-      {{photo.name}}
-    </h3>
     <p> Tags:
       {{#if photo.tags.[0]}}
-        {{photo.tags}}
+        {{tags-display photo.tags}}
       {{else}}
         No data provided
       {{/if}}
     </p>
-    <p>Owned by: {{photo.owner.email}}</p> <!-- help with partial "owner"? -->
+    <p>Owned by: {{photo.owner.email}}</p>
     <p>Posted on: {{date-time photo.createdAt}}</p>
     <p>Updated on: {{date-time photo.updatedAt}}</p>
   </section>
+</div>
 {{/with}}

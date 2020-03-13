@@ -1,6 +1,7 @@
 'use strict'
 const indexPhotosTemplate = require('../templates/index-display.handlebars')
 const showPhotoTemplate = require('../templates/show-display.handlebars')
+const showOwnedPhotoTemplate = require('../templates/show-display-owned.handlebars')
 const store = require('../store')
 
 const onCreatePhotoSuccess = function (data) {
@@ -25,8 +26,24 @@ const onIndexPhotosFailure = function (data) {
 
 const onShowPhotoSuccess = function (data) {
   $('#show-photo-modal').modal()
-  const showPhotoHTML = showPhotoTemplate({ photo: data.photo })
-  $('.modal-body').html(showPhotoHTML)
+  let showPhotoHTML
+  // console.log(store.user)
+  // console.log(data.photo.owner)
+  // console.log(store.user._id === data.photo.owner._id)
+  if (store.user._id === data.photo.owner) {
+    showPhotoHTML = showOwnedPhotoTemplate({ photo: data.photo })
+  } else {
+    showPhotoHTML = showPhotoTemplate({ photo: data.photo })
+  }
+  $('.modal-content').html(showPhotoHTML)
+}
+
+const onUpdatePhotoSuccess = function (data) {
+  $('#nav-message').text('Update Photo Success')
+}
+
+const onUpdatePhotoFailure = function (data) {
+  $('#nav-message').text('Update Photo Failure')
 }
 
 const onShowPhotoFailure = function (data) {
@@ -39,5 +56,7 @@ module.exports = {
   onIndexPhotosSuccess,
   onIndexPhotosFailure,
   onShowPhotoSuccess,
-  onShowPhotoFailure
+  onShowPhotoFailure,
+  onUpdatePhotoSuccess,
+  onUpdatePhotoFailure
 }
