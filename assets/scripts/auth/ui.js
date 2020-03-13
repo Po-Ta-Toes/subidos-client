@@ -14,8 +14,9 @@ const onSignUpFailure = function (response) {
 }
 
 const onSignInSuccess = function (response) {
+  $('#signin-modal').modal('hide')
   $('.sign-in-wrapper').addClass('hidden')
-  $('.main-content').removeClass('hidden')
+  $('.main-content').removeClass('hidden').css('display', 'flex')
   store.user = response.user
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
@@ -37,6 +38,7 @@ const onChangePwFailure = function (response) {
 }
 
 const onSignOutSuccess = function (response) {
+  $('#signout-modal').modal('hide')
   $('#sign-up-message').text('sign out success')
   $('.sign-in-wrapper').removeClass('hidden')
   $('.main-content').addClass('hidden')

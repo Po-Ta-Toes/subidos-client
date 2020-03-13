@@ -1,11 +1,36 @@
 @import '~bootstrap/scss/bootstrap';
 
+$alert: #a62500;
+$base: #121212;
+$border: #000;
+$light-base: #454545;
+$primary: #80dd80 ;
+$highlight: #9370db;
+$inner-shadow: inset 1px 1px 45px 20px rgba(0, 0, 0, .5);
+
+body {
+  background-color: $base;
+  color: $primary;
+}
+
+.auth-btn {
+  border: 0;
+  box-shadow: $inner-shadow;
+  color: $border;
+  display: block;
+  margin: 0 auto 5vh;
+}
+
+.btn-alert {
+  color: $alert;
+}
+
 .hidden {
   display: none;
 }
 
 .full-image {
-  border: 1px solid black;
+  border: 1px solid $border;
 }
 
 .index-listing {
@@ -13,8 +38,32 @@
   flex-flow: row wrap;
 }
 
+.logo {
+  display: block;
+  height: 50vh;
+  margin: 10vh auto 0;
+  width: 50vh;
+}
+
+.modal-content {
+  background-color: $light-base;
+}
+
 .thumbnail {
-  border: 1px solid black;
+  border: 1px solid $border;
   height: 5vh;
   width: 5vh;
+}
+
+.wrapper {
+  align-items: stretch;
+  width: 100%;
+}
+
+.side-nav {
+  background-color: $light-base;
+  border-right: 5px solid $highlight;
+  height: 100vh;
+  max-width: 250px;
+  min-width: 250px;
 }

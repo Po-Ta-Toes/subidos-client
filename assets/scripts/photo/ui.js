@@ -16,7 +16,8 @@ const onCreatePhotoFailure = function (data) {
 }
 
 const onIndexPhotosSuccess = function (data) {
-  // $('#nav-message').text('Received photos')
+  $('#nav-message').text('Received photos')
+  setTimeout(() => { $('#nav-message').text('') }, 2500)
   const indexPhotosHTML = indexPhotosTemplate({ photos: data.photos })
   $('#index-wrapper').html(indexPhotosHTML)
 }
