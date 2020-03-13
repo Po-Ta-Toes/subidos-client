@@ -30,7 +30,7 @@ const onShowPhotoSuccess = function (data) {
   // console.log(store.user)
   // console.log(data.photo.owner)
   // console.log(store.user._id === data.photo.owner._id)
-  if (store.user._id === data.photo.owner) {
+  if (store.user._id === data.photo.owner._id) {
     showPhotoHTML = showOwnedPhotoTemplate({ photo: data.photo })
   } else {
     showPhotoHTML = showPhotoTemplate({ photo: data.photo })
