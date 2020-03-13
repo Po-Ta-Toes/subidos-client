@@ -1,5 +1,7 @@
 'use strict'
 const indexPhotosTemplate = require('../templates/index-display.handlebars')
+const showPhotoTemplate = require('../templates/show-display.handlebars')
+const store = require('../store')
 
 const onCreatePhotoSuccess = function (data) {
   $('#nav-message').text('Create Photo Success')
@@ -19,12 +21,23 @@ const onIndexPhotosSuccess = function (data) {
 
 const onIndexPhotosFailure = function (data) {
   $('#nav-message').text('Create Photo Failure')
-  console.log(data)
+}
+
+const onShowPhotoSuccess = function (data) {
+  $('#show-photo-modal').modal()
+  const showPhotoHTML = showPhotoTemplate({ photo: data.photo })
+  $('.modal-body').html(showPhotoHTML)
+}
+
+const onShowPhotoFailure = function (data) {
+  console.log('failure: ', data)
 }
 
 module.exports = {
   onCreatePhotoSuccess,
   onCreatePhotoFailure,
   onIndexPhotosSuccess,
-  onIndexPhotosFailure
+  onIndexPhotosFailure,
+  onShowPhotoSuccess,
+  onShowPhotoFailure
 }

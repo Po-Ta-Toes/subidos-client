@@ -1,14 +1,8 @@
 {{#each photos as |photo|}}
-  <section data-id="{{photo._id}}">
-    <h3>
+  <section class="index-listing" data-id="{{photo._id}}">
+    <img data-id="{{photo._id}}" class="thumbnail selector" src="{{photo.url}}" alt="photo unavailable">
+    <h3 class="selector" data-id="{{photo._id}}">
       {{photo.name}}
     </h3>
-    <p> Tags:
-      {{#if photo.tags.[0]}}
-        {{photo.tags}}
-      {{else}}
-        No data provided
-      {{/if}}
-    </p>
   </section>
 {{/each}}
