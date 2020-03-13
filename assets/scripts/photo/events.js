@@ -33,6 +33,7 @@ const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
   $('#photo-index').on('click', onIndexPhotos)
   $('#index-wrapper').on('click', 'h3', onShowPhoto)
+  $('#index-wrapper').on('click', 'img', onShowPhoto)
 }
 
 module.exports = {
