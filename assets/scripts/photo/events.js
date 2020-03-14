@@ -15,7 +15,7 @@ const onCreatePhoto = function (event) {
 }
 
 const onIndexPhotos = function (event) {
-  event.preventDefault()
+  if (event) { event.preventDefault() }
   api.indexPhotos()
     .then(ui.onIndexPhotosSuccess)
     .catch(ui.onIndexPhotosFailure)
@@ -32,10 +32,10 @@ const onShowPhoto = function (event) {
 
 const onUpdatePhoto = function (event) {
   event.preventDefault()
-  // const formData = getFormFields(event.target)
   const photoId = $(event.target).data('id')
   const formData = getFormFields($(`#form-${photoId}`)[0])
   api.updatePhoto(formData, photoId)
+    .then(onIndexPhotos)
     .then(ui.onUpdatePhotoSuccess)
     .catch(ui.onUpdatePhotoFailure)
 }
@@ -45,6 +45,7 @@ const onDeletePhoto = function (event) {
 
   const photoId = $(event.target).data('id')
   api.deletePhoto(photoId)
+    .then(onIndexPhotos)
     .then(ui.onDeletePhotoSuccess)
     .catch(ui.onDeletePhotoFailure)
 }
