@@ -11,6 +11,7 @@ const onCreatePhoto = function (event) {
 
   api.createPhoto(formData)
     .then(ui.onCreatePhotoSuccess)
+    .then(onIndexPhotos)
     .catch(ui.onCreatePhotoFailure)
 }
 
@@ -52,12 +53,13 @@ const onDeletePhoto = function (event) {
 
 const addHandlers = function () {
   $('#photo-create').on('submit', onCreatePhoto)
-  $('#photo-index').on('click', onIndexPhotos)
+  // $('#photo-index').on('click', onIndexPhotos)
   $('#index-wrapper').on('click', '.selector', onShowPhoto)
   $('#show-photo-modal').on('click', '.update-btn', onUpdatePhoto)
   $('#show-photo-modal').on('click', '.delete-btn', onDeletePhoto)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onIndexPhotos
 }

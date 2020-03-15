@@ -24,17 +24,17 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function (response) {
-  $('#signin-message').text('sign in failure')
+  $('#signin-message').text('sign in failure').css('color', 'red')
   $('#sign-in').trigger('reset')
 }
 
 const onChangePwSuccess = function (response) {
-  $('#nav-message').text('change pw success')
+  $('#pw-message').text('change pw success').css('color', 'green')
   $('#change-pw').trigger('reset')
 }
 
 const onChangePwFailure = function (response) {
-  $('#nav-message').text('change pw failure')
+  $('#pw-message').text('change pw failure').css('color', 'red')
   $('#change-pw').trigger('reset')
 }
 
@@ -45,7 +45,7 @@ const onSignOutSuccess = function (response) {
 }
 
 const onSignOutFailure = function (response) {
-  $('#nav-message').text('sign out failure')
+  $('#signout-message').text('error: account still active').css('color', 'red')
 }
 
 module.exports = {
