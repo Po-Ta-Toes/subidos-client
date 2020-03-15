@@ -1,6 +1,6 @@
 {{#with photo as |photo|}}
 <div class="modal-header">
-  <h5 class="modal-title" id="exampleModalLongTitle">Your Photo:</h5>
+  <h5 class="modal-title" id="showPhotoModalLongTitle">Your Photo:</h5>
   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
     <span aria-hidden="true">&times;</span>
   </button>
@@ -8,11 +8,11 @@
 <div class="modal-body">
   <section data-id="{{photo._id}}">
     <img class="full-image" src="{{photo.url}}" alt="photo unavailable">
-    <form id="form-{{photo._id}}" class="update-photo-form" data-id="{{photo._id}}">
+    <form class="form-{{photo._id}}" class="update-photo-form" data-id="{{photo._id}}">
       <fieldset>
         <legend>Upload a Photo:</legend>
         <label>Name:
-          <input name="photo[name]" id="name-{{photo._id}}" type="text" value="{{photo.name}}">
+          <input name="photo[name]" type="text" value="{{photo.name}}">
         </label>
         {{#if photo.tags.[0]}}
         <label>Hashtags: (separate by commas)

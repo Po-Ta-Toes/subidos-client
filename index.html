@@ -12,23 +12,24 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <div class="sign-in-wrapper">
+      <div class="title-content">
         <section id="title">
             <img class="logo" src="./public/subidos-logo.png" alt="Subidos">
             <button type="button" class="auth-btn btn btn-success" data-toggle="modal" data-target="#signup-modal">Sign Up</button>
             <button type="button" class="auth-btn btn btn-success" data-toggle="modal" data-target="#signin-modal">Sign In</button>
         </section>
 
-        <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signUpModalTitle" aria-hidden="true">
+        <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="signupModalTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Sign Up:</h5>
+                <h5 class="modal-title" id="signupModalTitle">Sign Up:</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
               <div class="modal-body">
+                <p id="signup-message" class="message"></p>
                 <form id="sign-up">
                   <fieldset>
                     <input name="credentials[email]" type="email" placeholder="Your Email here">
@@ -53,6 +54,7 @@
               </div>
               <div class="modal-body">
                 <form id="sign-in">
+                  <p id="signin-message" class="message"></p>
                   <fieldset>
                     <input name="credentials[email]" type="email" placeholder="Email">
                     <input name="credentials[password]" type="password" placeholder="Password">
@@ -94,28 +96,12 @@
               <input type="submit" class="btn btn-success" value="Change Password">
             </fieldset>
           </form>
-          <button type="button" class="btn btn-alert" data-toggle="modal" data-target="#signout-modal">Sign Out</button>
+          <form id="sign-out">
+            <fieldset>
+              <input type="submit" class="btn btn-alert" value="Sign Out">
+            </fieldset>
+          </form>
         </nav>
-
-        <div class="modal fade" id="signout-modal" tabindex="-1" role="dialog" aria-labelledby="signOutModalTitle" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Are you sure you want to go?</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div id="show-modal-body" class="modal-body">
-                <form id="sign-out">
-                  <fieldset>
-                    <input type="submit" class="btn btn-alert" value="Yes, sign me out">
-                  </fieldset>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
 
         <div class="modal fade" id="show-photo-modal" tabindex="-1" role="dialog" aria-labelledby="showPhotoModalTitle" aria-hidden="true">
           <div class="modal-dialog modal-dialog-centered" role="document">

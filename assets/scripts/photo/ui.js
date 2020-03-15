@@ -16,8 +16,8 @@ const onCreatePhotoFailure = function (data) {
 }
 
 const onIndexPhotosSuccess = function (data) {
-  $('#nav-message').text('Received photos')
-  setTimeout(() => { $('#nav-message').text('') }, 2500)
+  // $('#nav-message').text('Received photos')
+  // setTimeout(() => { $('#nav-message').text('') }, 2500)
   const indexPhotosHTML = indexPhotosTemplate({ photos: data.photos })
   $('#index-wrapper').html(indexPhotosHTML)
 }
@@ -40,7 +40,6 @@ const onShowPhotoSuccess = function (data) {
 const onUpdatePhotoSuccess = function (data) {
   $('#nav-message').text('Update Photo Success')
   $('#show-photo-modal').modal('hide')
-  events.indexPhotos()
 }
 
 const onUpdatePhotoFailure = function (data) {
@@ -54,7 +53,6 @@ const onShowPhotoFailure = function (data) {
 const onDeletePhotoSuccess = function (data) {
   $('#nav-message').text('Delete successful')
   $('#show-photo-modal').modal('hide')
-  events.indexPhotos()
 }
 
 const onDeletePhotoFailure = function (data) {

@@ -33,7 +33,7 @@ const onShowPhoto = function (event) {
 const onUpdatePhoto = function (event) {
   event.preventDefault()
   const photoId = $(event.target).data('id')
-  const formData = getFormFields($(`#form-${photoId}`)[0])
+  const formData = getFormFields($(`.form-${photoId}`)[0])
   api.updatePhoto(formData, photoId)
     .then(onIndexPhotos)
     .then(ui.onUpdatePhotoSuccess)

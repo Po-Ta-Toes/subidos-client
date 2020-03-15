@@ -3,19 +3,22 @@
 const store = require('../store')
 
 const onSignUpSuccess = function (response) {
-  $('#sign-up-message').text('sign up success')
+  // $('#show-modal-body').empty()
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
+  $('#signup-modal').modal('hide')
+  $('#signin-modal').modal('show')
 }
 
 const onSignUpFailure = function (response) {
-  $('#sign-up-message').text('sign up failure')
+  $('#signup-message').text('sign up failure')
   $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
+  $('#show-modal-body').empty()
   $('#signin-modal').modal('hide')
-  $('.sign-in-wrapper').addClass('hidden')
+  $('.title-content').addClass('hidden')
   $('.main-content').removeClass('hidden').css('display', 'flex')
   store.user = response.user
   $('#sign-up').trigger('reset')
@@ -23,7 +26,7 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function (response) {
-  $('#sign-up-message').text('sign in failure')
+  $('#signin-message').text('sign in failure')
   $('#sign-in').trigger('reset')
 }
 
@@ -38,11 +41,12 @@ const onChangePwFailure = function (response) {
 }
 
 const onSignOutSuccess = function (response) {
-  $('#signout-modal').modal('hide')
-  $('#sign-up-message').text('sign out success')
-  $('.sign-in-wrapper').removeClass('hidden')
-  $('.main-content').addClass('hidden')
-  $('#change-pw').trigger('reset')
+  store.user = null // wipes signed-in users data clean
+  $('.modal').modal('hide')
+  $('#show-modal-body').empty()
+  // $('#change-pw').trigger('reset')
+  $('.main-content').css('display', 'none')
+  $('.title-content').removeClass('hidden')
 }
 
 const onSignOutFailure = function (response) {
