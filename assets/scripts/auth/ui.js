@@ -6,15 +6,17 @@ const onSignUpSuccess = function (response) {
   $('#sign-up-message').text('sign up success')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
+  $('#sign-in').removeClass('hidden')
+  $('#sign-up').addClass('hidden')
 }
 
 const onSignUpFailure = function (response) {
-  $('#sign-up-message').text('sign up failure')
+  $('#signup-message').text('sign up failure')
   $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
-  $('.sign-in-wrapper').addClass('hidden')
+  $('.title-content').addClass('hidden')
   $('.main-content').removeClass('hidden')
   store.user = response.user
   $('#sign-up').trigger('reset')
@@ -22,7 +24,7 @@ const onSignInSuccess = function (response) {
 }
 
 const onSignInFailure = function (response) {
-  $('#sign-up-message').text('sign in failure')
+  $('#signin-message').text('sign in failure')
   $('#sign-in').trigger('reset')
 }
 
@@ -37,8 +39,7 @@ const onChangePwFailure = function (response) {
 }
 
 const onSignOutSuccess = function (response) {
-  $('#sign-up-message').text('sign out success')
-  $('.sign-in-wrapper').removeClass('hidden')
+  $('.title-content').removeClass('hidden')
   $('.main-content').addClass('hidden')
   $('#change-pw').trigger('reset')
 }

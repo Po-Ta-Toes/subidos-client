@@ -12,26 +12,28 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Subidos</h1>
-
-      <div class="sign-in-wrapper">
-        <p id="sign-up-message"></p>
-        <form id="sign-up">
+      <div class="title-content">
+        <img class="logo" src="./public/subidos-logo.png" alt="subidos logo">
+        <form id="sign-up" class="hidden">
+          <p id="signup-message"></p>
           <fieldset>
             <legend>Sign Up</legend>
             <input name="credentials[email]" type="email" placeholder="Your Email here">
             <input name="credentials[password]" type="password" placeholder="Password">
             <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
-            <input type="submit" value="Sign Up">
+            <input class="submit-btn btn btn-success" type="submit" value="Sign Up">
           </fieldset>
+          <a class="signin-nav">Already have an account? Sign in!</a>
         </form>
         <form id="sign-in">
+          <p id="signin-message"></p>
           <fieldset>
             <legend>Sign in</legend>
             <input name="credentials[email]" type="email" placeholder="Email">
             <input name="credentials[password]" type="password" placeholder="Password">
-            <input type="submit" value="Sign in">
+            <input class="submit-btn btn btn-success" type="submit" value="Sign in">
           </fieldset>
+          <a class="signup-nav">Don't have an account? Sign up!</a>
         </form>
       </div>
 
@@ -51,7 +53,7 @@
               <label>Hashtags: (separate by commas)
                 <textarea name="tags" placeholder="#nature, #sunset, #livinmybestlife"></textarea>
               </label>
-              <input type="submit" value="Upload">
+              <input class="submit-btn" type="submit" value="Upload">
             </fieldset>
           </form>
           <form id="change-pw">
@@ -59,13 +61,13 @@
               <legend>Change Password</legend>
               <input name="passwords[old]" type="password" placeholder="Old Password">
               <input name="passwords[new]" type="password" placeholder="New Password">
-              <input type="submit" value="Change Password">
+              <input class="submit-btn" type="submit" value="Change Password">
             </fieldset>
           </form>
           <form id="sign-out">
             <fieldset>
               <legend>Sign out</legend>
-              <input type="submit" value="Sign out">
+              <input class="submit-btn" type="submit" value="Sign out">
             </fieldset>
           </form>
         </nav>

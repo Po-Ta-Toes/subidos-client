@@ -1,11 +1,25 @@
 @import '~bootstrap/scss/bootstrap';
 
+$alert: #a62500;
+$base: #232323;
+$border: 1px solid #6a0dad;
+$light-base: #454545;
+$primary: #80dd80;
+$highlight: #9370db;
+
+body {
+  background-color: $base;
+  color: $primary;
+  font-family: monospace;
+}
+
 .hidden {
   display: none;
 }
 
 .full-image {
-  border: 1px solid black;
+  border: $border;
+  width: 80%;
 }
 
 .index-listing {
@@ -13,8 +27,49 @@
   flex-flow: row wrap;
 }
 
+.logo {
+  margin: 10vh auto 5vh;
+  width: 55vw;
+}
+
+.title-content {
+  text-align: center;
+  text-shadow: 5px 5px 10px #000000;
+
+  form {
+    border: $border;
+    border-radius: 25%;
+    box-shadow: 5px 5px 10px #000000;
+    margin: auto;
+    padding: 3vh;
+    width: 50vw;
+
+    a {
+      color: $primary;
+      display: inline-block;
+      font-size: 12px;
+      margin-top: 2vh;
+    }
+  }
+
+  legend {
+    font-size: 2em;
+  }
+
+  input {
+    margin: 1vh auto;
+    width: 80%;
+  }
+
+  .submit-btn {
+    display: block;
+    margin: auto;
+    padding: 0;
+  }
+}
+
 .thumbnail {
-  border: 1px solid black;
+  border: $border;
   height: 5vh;
   width: 5vh;
 }
