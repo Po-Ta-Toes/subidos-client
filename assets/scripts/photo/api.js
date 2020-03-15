@@ -47,9 +47,20 @@ const updatePhoto = function (data, id) {
   })
 }
 
+const deletePhoto = function (id) {
+  return $.ajax({
+    url: config.apiUrl + '/photos/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Bearer ' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   createPhoto,
   indexPhotos,
   showPhoto,
-  updatePhoto
+  updatePhoto,
+  deletePhoto
 }

@@ -3,6 +3,7 @@ const indexPhotosTemplate = require('../templates/index-display.handlebars')
 const showPhotoTemplate = require('../templates/show-display.handlebars')
 const showOwnedPhotoTemplate = require('../templates/show-display-owned.handlebars')
 const store = require('../store')
+const events = require('./events')
 
 const onCreatePhotoSuccess = function (data) {
   $('#nav-message').text('Create Photo Success')
@@ -15,7 +16,7 @@ const onCreatePhotoFailure = function (data) {
 }
 
 const onIndexPhotosSuccess = function (data) {
-  $('#nav-message').text('Received photos')
+  // $('#nav-message').text('Received photos')
   const indexPhotosHTML = indexPhotosTemplate({ photos: data.photos })
   $('#index-wrapper').html(indexPhotosHTML)
 }
@@ -27,10 +28,7 @@ const onIndexPhotosFailure = function (data) {
 const onShowPhotoSuccess = function (data) {
   $('#show-photo-modal').modal()
   let showPhotoHTML
-  // console.log(store.user)
-  // console.log(data.photo.owner)
-  // console.log(store.user._id === data.photo.owner._id)
-  if (store.user._id === data.photo.owner) {
+  if (store.user._id === data.photo.owner._id) {
     showPhotoHTML = showOwnedPhotoTemplate({ photo: data.photo })
   } else {
     showPhotoHTML = showPhotoTemplate({ photo: data.photo })
@@ -40,6 +38,8 @@ const onShowPhotoSuccess = function (data) {
 
 const onUpdatePhotoSuccess = function (data) {
   $('#nav-message').text('Update Photo Success')
+  $('#show-photo-modal').modal('hide')
+  events.indexPhotos()
 }
 
 const onUpdatePhotoFailure = function (data) {
@@ -47,6 +47,16 @@ const onUpdatePhotoFailure = function (data) {
 }
 
 const onShowPhotoFailure = function (data) {
+  console.log('failure: ', data)
+}
+
+const onDeletePhotoSuccess = function (data) {
+  $('#nav-message').text('Delete successful')
+  $('#show-photo-modal').modal('hide')
+  events.indexPhotos()
+}
+
+const onDeletePhotoFailure = function (data) {
   console.log('failure: ', data)
 }
 
@@ -58,5 +68,7 @@ module.exports = {
   onShowPhotoSuccess,
   onShowPhotoFailure,
   onUpdatePhotoSuccess,
-  onUpdatePhotoFailure
+  onUpdatePhotoFailure,
+  onDeletePhotoSuccess,
+  onDeletePhotoFailure
 }
