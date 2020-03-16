@@ -1,11 +1,26 @@
 @import '~bootstrap/scss/bootstrap';
 
+$alert: #a62500;
+$base: #232323;
+$border: solid #6a0dad;
+$light-base: #454545;
+$primary: #80dd80;
+$highlight: #6a0dad;
+$shadow: 5px 5px 10px #000;
+
+body {
+  background-color: $base;
+  color: $primary;
+  font-family: monospace;
+}
+
 .hidden {
   display: none;
 }
 
 .full-image {
-  border: 1px solid black;
+  border: 1px $border;
+  width: 80%;
 }
 
 .index-listing {
@@ -13,8 +28,104 @@
   flex-flow: row wrap;
 }
 
+.logo {
+  margin: 10vh auto 5vh;
+  width: 55vw;
+}
+
+.modal-dialog {
+  margin: 0;
+  padding: 0;
+}
+
+.modal-content {
+  margin: 0 5vw;
+  width: 80vw;
+}
+
+.title-content {
+  text-align: center;
+  text-shadow: 5px 5px 10px #000000;
+
+  form {
+    border: 1px $border;
+    border-radius: 25%;
+    box-shadow: 5px 5px 10px #000000;
+    margin: auto;
+    padding: 3vh;
+    width: 50vw;
+
+    a {
+      color: $primary;
+      display: inline-block;
+      font-size: 12px;
+      margin-top: 2vh;
+    }
+  }
+
+  legend {
+    font-size: 2em;
+  }
+
+  input {
+    margin: 1vh auto;
+    width: 80%;
+  }
+
+  .submit-btn {
+    display: block;
+    margin: auto;
+    padding: 0;
+  }
+}
+
+.log-section {
+  left: 55vw;
+  position: relative;
+}
+
+.side-nav {
+  background-color: $light-base;
+  border-right: 5px $border;
+  height: 100%;
+  padding-top: 2vh;
+  position: fixed;
+  width: 50vw;
+
+  form {
+    border: $border;
+    border-radius: 25%;
+    box-shadow: $shadow;
+    margin: 2vh auto;
+    position: static;
+    text-align: center;
+    width: 90%;
+
+    input,
+    textarea {
+      display: inline-block;
+      width: 75%;
+    }
+
+    .submit-btn {
+      display: inline-block;
+      padding: 1vh;
+      width: 50%;
+    }
+  }
+
+  button {
+    border-color: $alert;
+    box-shadow: $shadow;
+    color: $alert;
+    display: block;
+    font-weight: bold;
+    margin: 4vh auto;
+  }
+}
+
 .thumbnail {
-  border: 1px solid black;
+  border: $border;
   height: 5vh;
   width: 5vh;
 }
