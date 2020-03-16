@@ -4,7 +4,7 @@ const mainContentTemplate = require('../templates/main-content.handlebars')
 
 const onSignUpSuccess = function (response) {
   $('#signup-message').text('')
-  $('#signin-message').text('Sign Up Success')
+  $('#signin-message').text('Sign Up Success').css('color', 'green')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#sign-in').removeClass('hidden')
