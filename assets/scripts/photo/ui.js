@@ -11,7 +11,7 @@ const onCreatePhotoSuccess = function (data) {
 }
 
 const onCreatePhotoFailure = function (data) {
-  $('#upload-message').text('Create Photo Failure')
+  $('#upload-message').text('Create Photo Failure').css('color', 'red')
   $('#photo-create').trigger('reset')
 }
 
@@ -51,7 +51,7 @@ const onUpdatePhotoFailure = function (data) {
 }
 
 const onDeletePhotoSuccess = function (data) {
-  $('#nav-message').text('Delete successful').css('color', 'green')
+  $('#nav-message').text('Delete Successful').css('color', 'green')
   $('#show-photo-modal').modal('hide')
 }
 
