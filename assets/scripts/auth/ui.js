@@ -1,5 +1,7 @@
 'use strict'
 
+const mainContentTemplate = require('../templates/main-content.handlebars')
+
 const onSignUpSuccess = function (response) {
   $('#signup-message').text('')
   $('#signin-message').text('Sign Up Success')
@@ -16,7 +18,8 @@ const onSignUpFailure = function (response) {
 
 const onSignInSuccess = function (response) {
   $('.title-content').addClass('hidden')
-  $('.main-content').removeClass('hidden')
+  const mainContentHtml = mainContentTemplate()
+  $('.main-content').html(mainContentHtml)
   $('#signin-message').text('')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
@@ -39,7 +42,7 @@ const onChangePwFailure = function (response) {
 
 const onSignOutSuccess = function (response) {
   $('.title-content').removeClass('hidden')
-  $('.main-content').addClass('hidden')
+  $('.main-content').empty()
   $('#signout-message').text('')
   $('#change-pw').trigger('reset')
 }
