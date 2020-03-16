@@ -1,50 +1,54 @@
 'use strict'
 
-const store = require('../store')
+const mainContentTemplate = require('../templates/main-content.handlebars')
 
 const onSignUpSuccess = function (response) {
-  $('#sign-up-message').text('sign up success')
+  $('#signup-message').text('')
+  $('#signin-message').text('Sign Up Success')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
+  $('#sign-in').removeClass('hidden')
+  $('#sign-up').addClass('hidden')
 }
 
 const onSignUpFailure = function (response) {
-  $('#sign-up-message').text('sign up failure')
+  $('#signup-message').text('Sign Up Failure').css('color', 'red')
   $('#sign-up').trigger('reset')
 }
 
 const onSignInSuccess = function (response) {
-  $('.sign-in-wrapper').addClass('hidden')
-  $('.main-content').removeClass('hidden')
-  store.user = response.user
+  $('.title-content').addClass('hidden')
+  const mainContentHtml = mainContentTemplate()
+  $('.main-content').html(mainContentHtml)
+  $('#signin-message').text('')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
 }
 
 const onSignInFailure = function (response) {
-  $('#sign-up-message').text('sign in failure')
+  $('#signin-message').text('Sign In Failure').css('color', 'red')
   $('#sign-in').trigger('reset')
 }
 
 const onChangePwSuccess = function (response) {
-  $('#nav-message').text('change pw success')
+  $('#pw-message').text('Change Password Success').css('color', 'green')
   $('#change-pw').trigger('reset')
 }
 
 const onChangePwFailure = function (response) {
-  $('#nav-message').text('change pw failure')
+  $('#pw-message').text('Change Password Failure').css('color', 'red')
   $('#change-pw').trigger('reset')
 }
 
 const onSignOutSuccess = function (response) {
-  $('#sign-up-message').text('sign out success')
-  $('.sign-in-wrapper').removeClass('hidden')
-  $('.main-content').addClass('hidden')
+  $('.title-content').removeClass('hidden')
+  $('.main-content').empty()
+  $('#signout-message').text('')
   $('#change-pw').trigger('reset')
 }
 
 const onSignOutFailure = function (response) {
-  $('#nav-message').text('sign out failure')
+  $('#signout-message').text('Error: Account Still Active').css('color', 'red')
 }
 
 module.exports = {

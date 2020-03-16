@@ -11,11 +11,12 @@ const onCreatePhoto = function (event) {
 
   api.createPhoto(formData)
     .then(ui.onCreatePhotoSuccess)
+    .then(onIndexPhotos)
     .catch(ui.onCreatePhotoFailure)
 }
 
 const onIndexPhotos = function (event) {
-  event.preventDefault()
+  if (event) { event.preventDefault() }
   api.indexPhotos()
     .then(ui.onIndexPhotosSuccess)
     .catch(ui.onIndexPhotosFailure)
@@ -32,21 +33,33 @@ const onShowPhoto = function (event) {
 
 const onUpdatePhoto = function (event) {
   event.preventDefault()
-  // const formData = getFormFields(event.target)
   const photoId = $(event.target).data('id')
   const formData = getFormFields($(`#form-${photoId}`)[0])
   api.updatePhoto(formData, photoId)
     .then(ui.onUpdatePhotoSuccess)
+    .then(onIndexPhotos)
     .catch(ui.onUpdatePhotoFailure)
 }
 
+const onDeletePhoto = function (event) {
+  event.preventDefault()
+
+  const photoId = $(event.target).data('id')
+  api.deletePhoto(photoId)
+    .then(onIndexPhotos)
+    .then(ui.onDeletePhotoSuccess)
+    .catch(ui.onDeletePhotoFailure)
+}
+
 const addHandlers = function () {
-  $('#photo-create').on('submit', onCreatePhoto)
-  $('#photo-index').on('click', onIndexPhotos)
-  $('#index-wrapper').on('click', '.selector', onShowPhoto)
-  $('#show-photo-modal').on('click', '.update-btn', onUpdatePhoto)
+  $('.main-content').on('submit', '#photo-create', onCreatePhoto)
+  // $('#photo-index').on('click', onIndexPhotos)
+  $('.main-content').on('click', '.selector', onShowPhoto)
+  $('.main-content').on('click', '.update-btn', onUpdatePhoto)
+  $('.main-content').on('click', '.delete-btn', onDeletePhoto)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  onIndexPhotos
 }

@@ -5,32 +5,29 @@ const showOwnedPhotoTemplate = require('../templates/show-display-owned.handleba
 const store = require('../store')
 
 const onCreatePhotoSuccess = function (data) {
-  $('#nav-message').text('Create Photo Success')
+  $('#upload-message').text('Create Photo Success').css('color', 'green')
   $('#photo-create').trigger('reset')
 }
 
 const onCreatePhotoFailure = function (data) {
-  $('#nav-message').text('Create Photo Failure')
+  $('#upload-message').text('Create Photo Failure').css('color', 'red')
   $('#photo-create').trigger('reset')
 }
 
 const onIndexPhotosSuccess = function (data) {
-  $('#nav-message').text('Received photos')
   const indexPhotosHTML = indexPhotosTemplate({ photos: data.photos })
   $('#index-wrapper').html(indexPhotosHTML)
 }
 
 const onIndexPhotosFailure = function (data) {
-  $('#nav-message').text('Create Photo Failure')
+  $('#index-message').text('Create Photo Failure').css('color', 'red')
 }
 
 const onShowPhotoSuccess = function (data) {
+  $('.message').text('')
   $('#show-photo-modal').modal()
   let showPhotoHTML
-  // console.log(store.user)
-  // console.log(data.photo.owner)
-  // console.log(store.user._id === data.photo.owner._id)
-  if (store.user._id === data.photo.owner) {
+  if (store.user._id === data.photo.owner._id) {
     showPhotoHTML = showOwnedPhotoTemplate({ photo: data.photo })
   } else {
     showPhotoHTML = showPhotoTemplate({ photo: data.photo })
@@ -38,16 +35,27 @@ const onShowPhotoSuccess = function (data) {
   $('.modal-content').html(showPhotoHTML)
 }
 
+const onShowPhotoFailure = function (data) {
+  $('#index-message').text('Could not show image, please try again later').css('color', 'red')
+}
+
 const onUpdatePhotoSuccess = function (data) {
-  $('#nav-message').text('Update Photo Success')
+  $('#nav-message').text('Update Photo Success').css('color', 'green')
+  $('#show-photo-modal').modal('hide')
 }
 
 const onUpdatePhotoFailure = function (data) {
-  $('#nav-message').text('Update Photo Failure')
+  $('#nav-message').text('Update Photo Failure').css('color', 'red')
 }
 
-const onShowPhotoFailure = function (data) {
-  console.log('failure: ', data)
+const onDeletePhotoSuccess = function (data) {
+  $('#nav-message').text('Delete Successful').css('color', 'green')
+  $('#show-photo-modal').modal('hide')
+}
+
+const onDeletePhotoFailure = function (data) {
+  $('#nav-message').text('Could not delete image, please try again later').css('color', 'red')
+  $('#show-photo-modal').modal('hide')
 }
 
 module.exports = {
@@ -58,5 +66,7 @@ module.exports = {
   onShowPhotoSuccess,
   onShowPhotoFailure,
   onUpdatePhotoSuccess,
-  onUpdatePhotoFailure
+  onUpdatePhotoFailure,
+  onDeletePhotoSuccess,
+  onDeletePhotoFailure
 }
