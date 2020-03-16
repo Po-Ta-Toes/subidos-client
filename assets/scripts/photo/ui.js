@@ -3,7 +3,6 @@ const indexPhotosTemplate = require('../templates/index-display.handlebars')
 const showPhotoTemplate = require('../templates/show-display.handlebars')
 const showOwnedPhotoTemplate = require('../templates/show-display-owned.handlebars')
 const store = require('../store')
-const events = require('./events')
 
 const onCreatePhotoSuccess = function (data) {
   $('#upload-message').text('Create Photo Success').css('color', 'green')
@@ -11,7 +10,7 @@ const onCreatePhotoSuccess = function (data) {
 }
 
 const onCreatePhotoFailure = function (data) {
-  $('#upload-message').text('Create Photo Failure')
+  $('#upload-message').text('Create Photo Failure').css('color', 'red')
   $('#photo-create').trigger('reset')
 }
 
@@ -43,7 +42,6 @@ const onShowPhotoFailure = function (data) {
 const onUpdatePhotoSuccess = function (data) {
   $('#nav-message').text('Update Photo Success').css('color', 'green')
   $('#show-photo-modal').modal('hide')
-  events.indexPhotos()
 }
 
 const onUpdatePhotoFailure = function (data) {
@@ -51,7 +49,7 @@ const onUpdatePhotoFailure = function (data) {
 }
 
 const onDeletePhotoSuccess = function (data) {
-  $('#nav-message').text('Delete successful').css('color', 'green')
+  $('#nav-message').text('Delete Successful').css('color', 'green')
   $('#show-photo-modal').modal('hide')
 }
 

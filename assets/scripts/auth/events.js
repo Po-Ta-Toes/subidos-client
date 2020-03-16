@@ -2,6 +2,7 @@
 
 const authApi = require('./api')
 const authUi = require('./ui')
+const store = require('../store')
 const photoEvents = require('../photo/events')
 const getFormFields = require('../../../lib/get-form-fields')
 
@@ -17,7 +18,10 @@ const onSignIn = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
   authApi.signIn(formData)
-    .then(authUi.onSignInSuccess)
+    .then(response => {
+      store.user = response.user
+      authUi.onSignInSuccess(response)
+    })
     .then(photoEvents.onIndexPhotos)
     .catch(authUi.onSignInFailure)
 }
@@ -33,15 +37,18 @@ const onChangePw = function (event) {
 const onSignOut = function (event) {
   event.preventDefault()
   authApi.signOut()
-    .then(authUi.onSignOutSuccess)
+    .then(response => {
+      store.user = null
+      authUi.onSignOutSuccess(response)
+    })
     .catch(authUi.onSignOutFailure)
 }
 
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
-  $('#change-pw').on('submit', onChangePw)
-  $('#sign-out').on('click', onSignOut)
+  $('.main-content').on('submit', '#change-pw', onChangePw)
+  $('.main-content').on('click', '#sign-out', onSignOut)
 }
 
 module.exports = {
