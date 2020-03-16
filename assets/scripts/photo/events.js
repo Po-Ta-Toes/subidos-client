@@ -36,8 +36,8 @@ const onUpdatePhoto = function (event) {
   const photoId = $(event.target).data('id')
   const formData = getFormFields($(`#form-${photoId}`)[0])
   api.updatePhoto(formData, photoId)
-    .then(onIndexPhotos)
     .then(ui.onUpdatePhotoSuccess)
+    .then(onIndexPhotos)
     .catch(ui.onUpdatePhotoFailure)
 }
 
