@@ -30,17 +30,7 @@ body {
 
 .logo {
   margin: 10vh auto 5vh;
-  width: 55vw;
-}
-
-.modal-dialog {
-  margin: 0;
-  padding: 0;
-}
-
-.modal-content {
-  margin: 0 5vw;
-  width: 80vw;
+  width: 22em;
 }
 
 .title-content {
@@ -53,7 +43,7 @@ body {
     box-shadow: 5px 5px 10px #000000;
     margin: auto;
     padding: 3vh;
-    width: 50vw;
+    width: 22em;
 
     a {
       color: $primary;
@@ -92,6 +82,7 @@ body {
   background-color: $light-base;
   border-right: 5px $border;
   height: 100%;
+  margin-right: 0;
   padding-top: 2vh;
   position: fixed;
   width: 50vw;
@@ -103,7 +94,7 @@ body {
     margin: 2vh auto;
     position: static;
     text-align: center;
-    width: 90%;
+    width: 85%;
 
     input,
     textarea {
@@ -132,4 +123,18 @@ body {
   border: $border;
   height: 5vh;
   width: 5vh;
+}
+
+@media only screen and (max-width: 600px) {
+  .modal-dialog {
+    margin: 0;
+    padding: 0;
+  }
+
+  .modal-content {
+    margin: 0 5vw;
+    position: relative;
+    top: -25vh;
+    width: 80vw;
+  }
 }
