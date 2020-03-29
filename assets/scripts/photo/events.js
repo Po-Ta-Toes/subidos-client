@@ -53,7 +53,7 @@ const onDeletePhoto = function (event) {
 
 const addHandlers = function () {
   $('.main-content').on('submit', '#photo-create', onCreatePhoto)
-  // $('#photo-index').on('click', onIndexPhotos)
+  $('.main-content').on('click', '#photo-index', onIndexPhotos)
   $('.main-content').on('click', '.selector', onShowPhoto)
   $('.main-content').on('click', '.update-btn', onUpdatePhoto)
   $('.main-content').on('click', '.delete-btn', onDeletePhoto)
