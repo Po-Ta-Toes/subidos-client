@@ -20,7 +20,7 @@ const onIndexPhotosSuccess = function (data) {
 }
 
 const onIndexPhotosFailure = function (data) {
-  $('#index-message').text('Create Photo Failure').css('color', 'red')
+  $('#index-message').text('Could not load photos').css('color', 'red')
 }
 
 const onShowPhotoSuccess = function (data) {

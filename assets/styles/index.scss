@@ -12,6 +12,7 @@ body {
   background-color: $base;
   color: $primary;
   font-family: monospace;
+  overflow-x: hidden;
 }
 
 .hidden {
