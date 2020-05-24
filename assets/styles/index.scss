@@ -95,6 +95,10 @@ body {
     font-size: 5em;
     font-style: italic;
   }
+
+  #index-wrapper {
+    width: 75vw;
+  }
 }
 
 .side-nav {
@@ -162,5 +166,19 @@ body {
     position: relative;
     top: -25vh;
     width: 80vw;
+  }
+}
+
+@media only screen and (min-width: 750px) {
+  #index-wrapper {
+    column-count: 2;
+    column-width: 10px;
+    text-align: justify;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  #index-wrapper {
+    column-count: 3;
   }
 }
