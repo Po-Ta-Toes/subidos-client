@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const signUp = userData => {
+  $('.loader').removeClass('hidden')
   return $.ajax({
     url: `${config.apiUrl}/sign-up`,
     method: 'POST',
@@ -12,6 +13,7 @@ const signUp = userData => {
 }
 
 const signIn = userData => {
+  $('.loader').removeClass('hidden')
   return $.ajax({
     url: `${config.apiUrl}/sign-in`,
     method: 'POST',
@@ -20,6 +22,7 @@ const signIn = userData => {
 }
 
 const changePw = userData => {
+  $('.loader').removeClass('hidden')
   return $.ajax({
     url: `${config.apiUrl}/change-password`,
     method: 'PATCH',
@@ -31,6 +34,7 @@ const changePw = userData => {
 }
 
 const signOut = () => {
+  $('.loader').removeClass('hidden')
   return $.ajax({
     url: `${config.apiUrl}/sign-out`,
     method: 'DELETE',

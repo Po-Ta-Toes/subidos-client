@@ -30,6 +30,21 @@ body {
   flex-flow: row wrap;
 }
 
+.loader {
+  animation: spin 2s linear infinite;
+  border: 10px solid #787878;
+  border-radius: 50%;
+  border-top: 10px solid $highlight;
+  height: 3rem;
+  margin: auto;
+  width: 3rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .modal {
   color: $base;
 
