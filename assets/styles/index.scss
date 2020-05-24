@@ -20,12 +20,24 @@ body {
 
 .full-image {
   border: 1px $border;
+  border-radius: 5px;
+  box-shadow: -1px 2px 1px 2px #c4c4c4;
   width: 80%;
 }
 
 .index-listing {
   display: flex;
   flex-flow: row wrap;
+}
+
+.modal {
+  color: $base;
+
+  input,
+  textarea {
+    border: 0;
+    text-align: center;
+  }
 }
 
 .title-content {
