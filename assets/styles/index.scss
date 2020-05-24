@@ -1,12 +1,11 @@
 @import '~bootstrap/scss/bootstrap';
 
-$alert: #a62500;
 $base: #232323;
 $border: solid #6a0dad;
 $light-base: #454545;
-$primary: #80dd80;
+$primary: #56d256;
 $highlight: #6a0dad;
-$shadow: 5px 5px 10px #000;
+$shadow: -1px 2px 1px 1px #111;
 
 body {
   background-color: $base;
@@ -36,7 +35,7 @@ body {
   form {
     border: 1px $border;
     border-radius: 25%;
-    box-shadow: 5px 5px 10px #000000;
+    box-shadow: -3px 5px 3px 5px #111;
     margin: auto;
     padding: 3vh;
     width: 22em;
@@ -46,6 +45,10 @@ body {
       display: inline-block;
       font-size: 12px;
       margin-top: 2vh;
+    }
+
+    legend {
+      font-size: 3em;
     }
 
     input {
@@ -64,7 +67,7 @@ body {
 
   .logo {
     margin: 10vh auto 5vh;
-    width: 18em;
+    width: 18rem;
   }
 
   .submit-btn {
@@ -90,6 +93,7 @@ body {
   h2 {
     display: inline-block;
     font-size: 5em;
+    font-style: italic;
   }
 }
 
@@ -102,9 +106,10 @@ body {
   position: fixed;
   width: 22rem;
 
-  .close {
+  .closeNav {
     color: $primary;
     display: block;
+    float: right;
     font-size: 2.5em;
     margin: auto;
   }
@@ -133,11 +138,8 @@ body {
   }
 
   button {
-    border-color: $alert;
     box-shadow: $shadow;
-    color: $alert;
     display: block;
-    font-weight: bold;
     margin: 4vh auto;
   }
 }
@@ -162,13 +164,3 @@ body {
     width: 80vw;
   }
 }
-
-// @media only screen and (max-width: 1000px) {
-//   .side-nav {
-//     .close {
-//       color: $primary;
-//       display: inline;
-//       font-size: 3em;
-//     }
-//   }
-// }

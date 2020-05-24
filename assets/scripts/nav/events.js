@@ -13,20 +13,20 @@ const toSignUp = function () {
 const closeNav = function () {
   $('.side-nav').addClass('hidden')
   $('.log-section').css('left', '0')
-  $('.open').removeClass('hidden')
+  $('.openNav').removeClass('hidden')
 }
 
 const openNav = function () {
   $('.side-nav').removeClass('hidden')
   $('.log-section').css('left', '23rem')
-  $('.open').addClass('hidden')
+  $('.openNav').addClass('hidden')
 }
 
 const addHandlers = function () {
   $('.signin-nav').on('click', toSignIn)
   $('.signup-nav').on('click', toSignUp)
-  $('.main-content').on('click', '.close', closeNav)
-  $('.main-content').on('click', '.open', openNav)
+  $('.main-content').on('click', '.closeNav', closeNav)
+  $('.main-content').on('click', '.openNav', openNav)
 }
 
 module.exports = {

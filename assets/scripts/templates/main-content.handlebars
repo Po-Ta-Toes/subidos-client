@@ -1,6 +1,6 @@
 <nav class="side-nav">
   <p id="nav-message" class="message"></p>
-  <a class="close" href="#"><i class="far fa-window-close"></i></a>
+  <a class="closeNav" href="#"><i class="far fa-window-close"></i></a>
   <form id="photo-create" enctype="multipart/form-data">
     <fieldset>
       <legend>Upload a Photo:</legend>
@@ -14,7 +14,7 @@
       <label>Hashtags: (separate by commas)
         <textarea name="tags" placeholder="#nature, #sunset, #livinmybestlife"></textarea>
       </label>
-      <input class="submit-btn btn btn-success" type="submit" value="Upload">
+      <input class="submit-btn btn btn-success btn-sm" type="submit" value="Upload">
     </fieldset>
   </form>
   <form id="change-pw">
@@ -23,16 +23,16 @@
       <legend>Change Password</legend>
       <input name="passwords[old]" type="password" placeholder="Old Password">
       <input name="passwords[new]" type="password" placeholder="New Password">
-      <input class="submit-btn btn btn-success" type="submit" value="Submit">
+      <input class="submit-btn btn btn-success btn-sm" type="submit" value="Submit">
     </fieldset>
   </form>
   <button id="photo-index" style="color:white; border:0;"class="btn btn-success">Refresh feed</button>
-  <button id="sign-out" class="submit-btn btn btn-alert">Sign Out</button>
+  <button id="sign-out" class="submit-btn btn btn-danger">Sign Out</button>
   <p id="signout-message"></p>
 </nav>
 
 <main class="log-section">
-  <a class="hidden open" href="#"><i class="fas fa-outdent"></i></a>
+  <a class="hidden openNav" href="#"><i class="fas fa-outdent"></i></a>
   <h2>Subidos</h2>
 
   <div class="modal fade" id="show-photo-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
