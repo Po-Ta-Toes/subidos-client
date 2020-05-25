@@ -4,6 +4,7 @@
   <form id="photo-create" enctype="multipart/form-data">
     <fieldset>
       <legend>Upload a Photo:</legend>
+      <div class="photo-loader loader hidden"></div>
       <p id="upload-message" class="message"></p>
       <label>Name:
         <input name="name" type="text" placeholder="file name">
@@ -31,6 +32,7 @@
   <button id="sign-out" class="submit-btn btn btn-danger">Sign Out</button>
   <div class="loader hidden"></div>
   <p id="signout-message"></p>
+  <div class="loader hidden"></div>
 </nav>
 
 <main class="log-section">
@@ -45,6 +47,7 @@
   </div>
 
   <p id="index-message" class="message"></p>
+  <div class="index-loader loader hidden"></div>
 
   <div id="index-wrapper"></div>
 

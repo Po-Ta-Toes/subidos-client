@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const createPhoto = data => {
+  $('.photo-loader').removeClass('hidden')
   return $.ajax({
     url: config.apiUrl + '/photos',
     method: 'POST',
@@ -17,6 +18,7 @@ const createPhoto = data => {
 }
 
 const indexPhotos = function () {
+  $('.index-loader').removeClass('hidden')
   return $.ajax({
     url: config.apiUrl + '/photos',
     method: 'GET',
@@ -27,6 +29,7 @@ const indexPhotos = function () {
 }
 
 const showPhoto = function (id) {
+  $('.photo-loader').removeClass('hidden')
   return $.ajax({
     url: config.apiUrl + '/photos/' + id,
     method: 'GET',
@@ -37,6 +40,7 @@ const showPhoto = function (id) {
 }
 
 const updatePhoto = function (data, id) {
+  $('.photo-loader').removeClass('hidden')
   return $.ajax({
     url: config.apiUrl + '/photos/' + id,
     method: 'PATCH',
@@ -48,6 +52,7 @@ const updatePhoto = function (data, id) {
 }
 
 const deletePhoto = function (id) {
+  $('.photo-loader').removeClass('hidden')
   return $.ajax({
     url: config.apiUrl + '/photos/' + id,
     method: 'DELETE',
