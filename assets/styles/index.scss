@@ -201,11 +201,19 @@ body {
     column-count: 2;
     column-width: 10px;
     text-align: justify;
+
+    section {
+      break-inside: avoid;
+    }
   }
 }
 
 @media only screen and (min-width: 1000px) {
   #index-wrapper {
     column-count: 3;
+
+    section {
+      break-inside: avoid;
+    }
   }
 }
