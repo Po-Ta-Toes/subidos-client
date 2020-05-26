@@ -9,11 +9,15 @@ const onSignUpSuccess = function (response) {
   $('#sign-in').trigger('reset')
   $('#sign-in').removeClass('hidden')
   $('#sign-up').addClass('hidden')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 const onSignUpFailure = function (response) {
   $('#signup-message').text('Sign Up Failure').css('color', 'red')
   $('#sign-up').trigger('reset')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 const onSignInSuccess = function (response) {
@@ -23,21 +27,29 @@ const onSignInSuccess = function (response) {
   $('#signin-message').text('')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 const onSignInFailure = function (response) {
   $('#signin-message').text('Sign In Failure').css('color', 'red')
   $('#sign-in').trigger('reset')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 const onChangePwSuccess = function (response) {
   $('#pw-message').text('Change Password Success').css('color', 'green')
   $('#change-pw').trigger('reset')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 const onChangePwFailure = function (response) {
   $('#pw-message').text('Change Password Failure').css('color', 'red')
   $('#change-pw').trigger('reset')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 const onSignOutSuccess = function (response) {
@@ -45,10 +57,14 @@ const onSignOutSuccess = function (response) {
   $('.main-content').empty()
   $('#signout-message').text('')
   $('#change-pw').trigger('reset')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 const onSignOutFailure = function (response) {
   $('#signout-message').text('Error: Account Still Active').css('color', 'red')
+  // hide loader image
+  $('.loader').addClass('hidden')
 }
 
 module.exports = {

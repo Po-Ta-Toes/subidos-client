@@ -10,7 +10,8 @@
     <img class="full-image" src="{{photo.url}}" alt="photo unavailable">
     <form id="form-{{photo._id}}" class="update-photo-form" data-id="{{photo._id}}">
       <fieldset>
-        <legend>Upload a Photo:</legend>
+        <legend>Your Photo:</legend>
+        <div class="photo-loader loader hidden"></div>
         <label>Name:
           <input name="photo[name]" id="name-{{photo._id}}" type="text" value="{{photo.name}}">
         </label>
