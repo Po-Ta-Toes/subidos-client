@@ -1,9 +1,10 @@
 <nav class="side-nav">
   <p id="nav-message" class="message"></p>
-  <button id="photo-index" style="color:white; border:0;"class="btn btn-success">Refresh feed</button>
+  <a class="closeNav" href="#"><i class="far fa-window-close"></i></a>
   <form id="photo-create" enctype="multipart/form-data">
     <fieldset>
       <legend>Upload a Photo:</legend>
+      <div class="photo-loader loader hidden"></div>
       <p id="upload-message" class="message"></p>
       <label>Name:
         <input name="name" type="text" placeholder="file name">
@@ -14,23 +15,30 @@
       <label>Hashtags: (separate by commas)
         <textarea name="tags" placeholder="#nature, #sunset, #livinmybestlife"></textarea>
       </label>
-      <input class="submit-btn btn btn-success" type="submit" value="Upload">
+      <input class="submit-btn btn btn-success btn-sm" type="submit" value="Upload">
     </fieldset>
   </form>
   <form id="change-pw">
     <p id="pw-message" class="message"></p>
     <fieldset>
       <legend>Change Password</legend>
+      <div class="loader hidden"></div>
       <input name="passwords[old]" type="password" placeholder="Old Password">
       <input name="passwords[new]" type="password" placeholder="New Password">
-      <input class="submit-btn btn btn-success" type="submit" value="Submit">
+      <input class="submit-btn btn btn-success btn-sm" type="submit" value="Submit">
     </fieldset>
   </form>
-  <button id="sign-out" class="submit-btn btn btn-alert">Sign Out</button>
+  <button id="photo-index" class="btn btn-success btn-lg">Refresh feed</button>
+  <button id="sign-out" class="submit-btn btn btn-danger">Sign Out</button>
+  <div class="loader hidden"></div>
   <p id="signout-message"></p>
+  <div class="loader hidden"></div>
 </nav>
 
 <main class="log-section">
+  <a class="hidden openNav" href="#"><i class="fas fa-outdent"></i></a>
+  <h2>Subidos</h2>
+
   <div class="modal fade" id="show-photo-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
@@ -39,6 +47,8 @@
   </div>
 
   <p id="index-message" class="message"></p>
+  <div class="index-loader loader hidden"></div>
+
   <div id="index-wrapper"></div>
 
 </main>
