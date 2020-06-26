@@ -31,6 +31,11 @@ const onSignInSuccess = function (response) {
   $('.loader').addClass('hidden')
 }
 
+const onGuestSignInSuccess = function (response) {
+  onSignInSuccess(response)
+  $('#change-pw').addClass('hidden')
+}
+
 const onSignInFailure = function (response) {
   $('#signin-message').text('Sign In Failure').css('color', 'red')
   $('#sign-in').trigger('reset')
@@ -59,6 +64,8 @@ const onSignOutSuccess = function (response) {
   $('#change-pw').trigger('reset')
   // hide loader image
   $('.loader').addClass('hidden')
+  // reveal change pw form in case of guest user
+  $('#change-pw').removeClass('hidden')
 }
 
 const onSignOutFailure = function (response) {
@@ -72,6 +79,7 @@ module.exports = {
   onSignUpFailure,
   onSignInSuccess,
   onSignInFailure,
+  onGuestSignInSuccess,
   onChangePwSuccess,
   onChangePwFailure,
   onSignOutSuccess,

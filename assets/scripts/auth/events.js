@@ -26,6 +26,22 @@ const onSignIn = function (event) {
     .catch(authUi.onSignInFailure)
 }
 
+const onGuestSignIn = function () {
+  const data = {
+    'credentials': {
+      'email': 'guest@email.com',
+      'password': 'zowpt7rv4fj'
+    }
+  }
+  authApi.signIn(data)
+    .then(response => {
+      store.user = response.user
+      authUi.onGuestSignInSuccess(response)
+    })
+    .then(photoEvents.onIndexPhotos)
+    .catch(authUi.onSignInFailure)
+}
+
 const onChangePw = function (event) {
   event.preventDefault()
   const formData = getFormFields(event.target)
@@ -47,6 +63,7 @@ const onSignOut = function (event) {
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
+  $('.guest-signin').on('click', onGuestSignIn)
   $('.main-content').on('submit', '#change-pw', onChangePw)
   $('.main-content').on('click', '#sign-out', onSignOut)
 }
