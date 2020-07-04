@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Subidos</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"> -->
+      <link rel="icon" href="icon.ico">
+      <link href="public/fontawesome-free/css/all.min.css" rel="stylesheet">
+
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+      <div class="title-content">
+        <img class="logo" src="./public/subidos-logo.png" alt="subidos logo">
+        <form id="sign-up" class="hidden">
+          <p id="signup-message"></p>
+          <fieldset>
+            <legend>Sign Up</legend>
+            <div class="loader hidden"></div>
+            <input name="credentials[email]" type="email" placeholder="Your Email here">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input name="credentials[password_confirmation]" type="password" placeholder="Confirm Password">
+            <input class="submit-btn btn btn-success" type="submit" value="Sign Up">
+          </fieldset>
+          <a class="signin-nav title-nav-link">Already have an account? <br> Sign in!</a>
+        </form>
+        <form id="sign-in">
+          <p id="signin-message"></p>
+          <fieldset>
+            <legend>Sign In</legend>
+            <div class="loader hidden"></div>
+            <input name="credentials[email]" type="email" placeholder="Email">
+            <input name="credentials[password]" type="password" placeholder="Password">
+            <input class="submit-btn btn btn-success" type="submit" value="Sign in">
+          </fieldset>
+          <a class="signup-nav title-nav-link">Don't have an account? <br> Sign up!</a>
+          <a href="#" class="guest-signin">OR.. sign in as a guest!</a>
+        </form>
+      </div>
+
+      <div class="main-content"></div>
+    </body>
+</html>
